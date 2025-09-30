@@ -9,7 +9,8 @@ Il peut être ouvert directement dans un navigateur sans configuration particuli
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/ton-utilisateur/.git
+  👉 git clone
+   https://github.com/AbdoulayeSG/Documentatio_html.git
    	2.	Ouvrez le fichier index.html dans votre navigateur.
 
 ⸻
