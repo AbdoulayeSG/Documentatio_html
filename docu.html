@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation HTML - Guide Complet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #34495e;
+        }
+        
+        main {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+            scroll-margin-top: 60px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .tag-card {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tag-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tag-name {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            margin: 15px 0;
+            color: #555;
+        }
+        
+        .example {
+            background: #2c3e50;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .result {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .usage {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .usage strong {
+            color: #856404;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .highlight {
+            background: yellow;
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 Documentation HTML Complète</h1>
+            <p>Guide pratique avec exemples et utilités de chaque balise</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#structure">Structure</a></li>
+                <li><a href="#texte">Texte</a></li>
+                <li><a href="#listes">Listes</a></li>
+                <li><a href="#liens">Liens</a></li>
+                <li><a href="#medias">Médias</a></li>
+                <li><a href="#tableaux">Tableaux</a></li>
+                <li><a href="#formulaires">Formulaires</a></li>
+                <li><a href="#semantique">Sémantique</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <!-- STRUCTURE -->
+            <section id="structure">
+                <h2>🏗️ Balises de Structure</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;html&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Balise racine qui englobe tout le document HTML.
+                    </div>
+                    <div class="example">&lt;html lang="fr"&gt;
+  &lt;!-- Contenu du document --&gt;
+&lt;/html&gt;</div>
+                    <div class="usage">
+                        <strong>💡 Conseil :</strong> Toujours spécifier l'attribut <code>lang</code> pour l'accessibilité et le SEO.
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;head&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Contient les métadonnées du document (titre, liens CSS, scripts, etc.).
+                    </div>
+                    <div class="example">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mon Site&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;body&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Contient tout le contenu visible de la page.
+                    </div>
+                    <div class="example">&lt;body&gt;
+  &lt;h1&gt;Bienvenue !&lt;/h1&gt;
+  &lt;p&gt;Contenu visible ici&lt;/p&gt;
+&lt;/body&gt;</div>
+                </div>
+            </section>
+            
+            <!-- TEXTE -->
+            <section id="texte">
+                <h2>📝 Balises de Texte</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;h1&gt; à &lt;h6&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Titres hiérarchiques (h1 = le plus important, h6 = le moins important).
+                    </div>
+                    <div class="example">&lt;h1&gt;Titre Principal&lt;/h1&gt;
+&lt;h2&gt;Sous-titre&lt;/h2&gt;
+&lt;h3&gt;Section&lt;/h3&gt;</div>
+                    <div class="result">
+                        <h1 style="font-size: 2em;">Titre Principal</h1>
+                        <h2 style="font-size: 1.5em;">Sous-titre</h2>
+                        <h3 style="font-size: 1.2em;">Section</h3>
+                    </div>
+                    <div class="usage">
+                        <strong>💡 Conseil :</strong> N'utiliser qu'un seul &lt;h1&gt; par page pour le SEO.
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;p&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Définit un paragraphe de texte.
+                    </div>
+                    <div class="example">&lt;p&gt;Ceci est un paragraphe de texte.&lt;/p&gt;</div>
+                    <div class="result">
+                        <p>Ceci est un paragraphe de texte.</p>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;strong&gt; et &lt;b&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> 
+                        <br>&lt;strong&gt; : Texte important (gras avec emphase sémantique)
+                        <br>&lt;b&gt; : Texte en gras (sans emphase particulière)
+                    </div>
+                    <div class="example">&lt;p&gt;&lt;strong&gt;Important !&lt;/strong&gt; Texte normal.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;Mot-clé&lt;/b&gt; en gras.&lt;/p&gt;</div>
+                    <div class="result">
+                        <p><strong>Important !</strong> Texte normal.</p>
+                        <p><b>Mot-clé</b> en gras.</p>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;em&gt; et &lt;i&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong>
+                        <br>&lt;em&gt; : Emphase (italique avec importance sémantique)
+                        <br>&lt;i&gt; : Italique (sans emphase particulière, pour termes techniques, etc.)
+                    </div>
+                    <div class="example">&lt;p&gt;C'est &lt;em&gt;vraiment&lt;/em&gt; important.&lt;/p&gt;
+&lt;p&gt;Le terme &lt;i&gt;HTML&lt;/i&gt; signifie...&lt;/p&gt;</div>
+                    <div class="result">
+                        <p>C'est <em>vraiment</em> important.</p>
+                        <p>Le terme <i>HTML</i> signifie...</p>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;br&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Saut de ligne (balise auto-fermante).
+                    </div>
+                    <div class="example">Ligne 1&lt;br&gt;
+Ligne 2</div>
+                    <div class="result">
+                        Ligne 1<br>
+                        Ligne 2
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;span&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Conteneur inline pour styliser une partie du texte.
+                    </div>
+                    <div class="example">&lt;p&gt;Texte avec &lt;span style="color: red;"&gt;mot rouge&lt;/span&gt;.&lt;/p&gt;</div>
+                    <div class="result">
+                        <p>Texte avec <span style="color: red;">mot rouge</span>.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- LISTES -->
+            <section id="listes">
+                <h2>📋 Listes</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;ul&gt; et &lt;li&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Liste non ordonnée (à puces).
+                    </div>
+                    <div class="example">&lt;ul&gt;
+  &lt;li&gt;Élément 1&lt;/li&gt;
+  &lt;li&gt;Élément 2&lt;/li&gt;
+  &lt;li&gt;Élément 3&lt;/li&gt;
+&lt;/ul&gt;</div>
+                    <div class="result">
+                        <ul>
+                            <li>Élément 1</li>
+                            <li>Élément 2</li>
+                            <li>Élément 3</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;ol&gt; et &lt;li&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Liste ordonnée (numérotée).
+                    </div>
+                    <div class="example">&lt;ol&gt;
+  &lt;li&gt;Première étape&lt;/li&gt;
+  &lt;li&gt;Deuxième étape&lt;/li&gt;
+  &lt;li&gt;Troisième étape&lt;/li&gt;
+&lt;/ol&gt;</div>
+                    <div class="result">
+                        <ol>
+                            <li>Première étape</li>
+                            <li>Deuxième étape</li>
+                            <li>Troisième étape</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Liste de définitions (terme + description).
+                    </div>
+                    <div class="example">&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Langage de balisage pour créer des pages web&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Langage de style pour la mise en forme&lt;/dd&gt;
+&lt;/dl&gt;</div>
+                    <div class="result">
+                        <dl>
+                            <dt><strong>HTML</strong></dt>
+                            <dd>Langage de balisage pour créer des pages web</dd>
+                            <dt><strong>CSS</strong></dt>
+                            <dd>Langage de style pour la mise en forme</dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- LIENS -->
+            <section id="liens">
+                <h2>🔗 Liens et Navigation</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;a&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Crée un lien hypertexte.
+                    </div>
+                    <div class="example">&lt;a href="https://example.com"&gt;Visitez notre site&lt;/a&gt;
+&lt;a href="page.html"&gt;Page locale&lt;/a&gt;
+&lt;a href="#section"&gt;Ancre interne&lt;/a&gt;
+&lt;a href="mailto:email@example.com"&gt;Envoyer un email&lt;/a&gt;</div>
+                    <div class="result">
+                        <a href="https://example.com" style="color: #667eea;">Visitez notre site</a><br>
+                        <a href="#structure" style="color: #667eea;">Ancre vers Structure</a>
+                    </div>
+                    <div class="usage">
+                        <strong>💡 Attributs utiles :</strong>
+                        <br>• <code>target="_blank"</code> : Ouvre dans un nouvel onglet
+                        <br>• <code>download</code> : Télécharge le fichier
+                        <br>• <code>rel="noopener"</code> : Sécurité pour target="_blank"
+                    </div>
+                </div>
+            </section>
+            
+            <!-- MÉDIAS -->
+            <section id="medias">
+                <h2>🖼️ Médias</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;img&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Insère une image (balise auto-fermante).
+                    </div>
+                    <div class="example">&lt;img src="image.jpg" alt="Description de l'image" width="300"&gt;</div>
+                    <div class="usage">
+                        <strong>💡 Conseil :</strong> L'attribut <code>alt</code> est obligatoire pour l'accessibilité !
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;video&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Intègre une vidéo.
+                    </div>
+                    <div class="example">&lt;video width="320" height="240" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Votre navigateur ne supporte pas la vidéo.
+&lt;/video&gt;</div>
+                    <div class="usage">
+                        <strong>💡 Attributs :</strong> controls, autoplay, loop, muted
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;audio&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Intègre un fichier audio.
+                    </div>
+                    <div class="example">&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  Votre navigateur ne supporte pas l'audio.
+&lt;/audio&gt;</div>
+                </div>
+            </section>
+            
+            <!-- TABLEAUX -->
+            <section id="tableaux">
+                <h2>📊 Tableaux</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;table&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Crée un tableau de données.
+                    </div>
+                    <div class="example">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nom&lt;/th&gt;
+      &lt;th&gt;Âge&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alice&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bob&lt;/td&gt;
+      &lt;td&gt;30&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+                    <div class="result">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th style="border: 1px solid #ddd; padding: 8px; background: #667eea; color: white;">Nom</th>
+                                    <th style="border: 1px solid #ddd; padding: 8px; background: #667eea; color: white;">Âge</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">Alice</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">25</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">Bob</td>
+                                    <td style="border: 1px solid #ddd; padding: 8px;">30</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="usage">
+                        <strong>💡 Balises :</strong>
+                        <br>• &lt;thead&gt; : En-tête du tableau
+                        <br>• &lt;tbody&gt; : Corps du tableau
+                        <br>• &lt;tr&gt; : Ligne (table row)
+                        <br>• &lt;th&gt; : Cellule d'en-tête
+                        <br>• &lt;td&gt; : Cellule de données
+                    </div>
+                </div>
+            </section>
+            
+            <!-- FORMULAIRES -->
+            <section id="formulaires">
+                <h2>📝 Formulaires</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;form&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Crée un formulaire interactif.
+                    </div>
+                    <div class="example">&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="nom"&gt;Nom :&lt;/label&gt;
+  &lt;input type="text" id="nom" name="nom" required&gt;
+  
+  &lt;label for="email"&gt;Email :&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+&lt;/form&gt;</div>
+                    <div class="result">
+                        <form style="display: flex; flex-direction: column; gap: 10px; max-width: 400px;">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            
+                            <label for="email">Email :</label>
+                            <input type="email" id="email" name="email" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            
+                            <button type="submit" style="padding: 10px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer;">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;input&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Champ de saisie (plusieurs types disponibles).
+                    </div>
+                    <div class="example">&lt;input type="text" placeholder="Texte"&gt;
+&lt;input type="email" placeholder="Email"&gt;
+&lt;input type="password" placeholder="Mot de passe"&gt;
+&lt;input type="number" min="0" max="100"&gt;
+&lt;input type="date"&gt;
+&lt;input type="checkbox"&gt;
+&lt;input type="radio" name="choix"&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;textarea&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Zone de texte multi-lignes.
+                    </div>
+                    <div class="example">&lt;textarea rows="4" cols="50"&gt;Votre message...&lt;/textarea&gt;</div>
+                    <div class="result">
+                        <textarea rows="4" cols="50" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 100%;">Votre message...</textarea>
+                    </div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;select&gt; et &lt;option&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Menu déroulant.
+                    </div>
+                    <div class="example">&lt;select name="pays"&gt;
+  &lt;option value="fr"&gt;France&lt;/option&gt;
+  &lt;option value="be"&gt;Belgique&lt;/option&gt;
+  &lt;option value="ca"&gt;Canada&lt;/option&gt;
+&lt;/select&gt;</div>
+                    <div class="result">
+                        <select name="pays" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="fr">France</option>
+                            <option value="be">Belgique</option>
+                            <option value="ca">Canada</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SÉMANTIQUE -->
+            <section id="semantique">
+                <h2>🎯 Balises Sémantiques HTML5</h2>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;header&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> En-tête de page ou de section.
+                    </div>
+                    <div class="example">&lt;header&gt;
+  &lt;h1&gt;Mon Site Web&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;nav&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Section de navigation principale.
+                    </div>
+                    <div class="example">&lt;nav&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#accueil"&gt;Accueil&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;main&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Contenu principal de la page (unique par page).
+                    </div>
+                    <div class="example">&lt;main&gt;
+  &lt;article&gt;...&lt;/article&gt;
+  &lt;section&gt;...&lt;/section&gt;
+&lt;/main&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;article&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Contenu autonome (article de blog, produit, etc.).
+                    </div>
+                    <div class="example">&lt;article&gt;
+  &lt;h2&gt;Titre de l'article&lt;/h2&gt;
+  &lt;p&gt;Contenu de l'article...&lt;/p&gt;
+&lt;/article&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+                    <span class="tag-name">&lt;section&gt;</span>
+                    <div class="description">
+                        <strong>Utilité :</strong> Section thématique du contenu.
+                    </div>
+                    <div class="example">&lt;section&gt;
+  &lt;h2&gt;À propos&lt;/h2&gt;
+  &lt;p&gt;Information...&lt;/p&gt;
+&lt;/section&gt;</div>
+                </div>
+                
+                <div class="tag-card">
+
+
+                    
